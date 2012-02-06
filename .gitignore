@@ -1,3 +1,15 @@
+# ignore build output
+target
+/bin
+# ignore eclipse files
 .project
 .classpath
-target
+.settings
+.metadata
+# ignore IDEA files
+*.iml
+*.ipr
+*.iws
+.idea
+
+
