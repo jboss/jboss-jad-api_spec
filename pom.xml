@@ -14,8 +14,8 @@
   <version>1.0.1.Final-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>JavaEE Application Deployment 1.2 API</name>
-  <description>The JavaEE Application Deployment 1.2 API classes</description>
+  <name>Java(TM) EE Application Deployment 1.2 API</name>
+  <description>JSR 88: Java(TM) EE Application Deployment 1.2 API</description>
 
   <licenses>
     <license>
@@ -65,6 +65,60 @@
         </executions>
       </plugin>
 
+      <!-- Generate the OSGi jar Manifest. -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>bundle-manifest</id>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>manifest</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <archive>
+            <manifest>
+              <addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
+            </manifest>
+          </archive>
+          <instructions>
+            <Specification-Title>Java(TM) EE Application Deployment 1.2 API</Specification-Title>
+            <Specification-Vendor>Oracle</Specification-Vendor>
+            <Specification-Version>1.2</Specification-Version>
+            <!-- Set the package version to match the spec version -->
+            <Export-Package>
+              javax.enterprise.deploy*;version=1.2
+            </Export-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+      <!-- Add the OSGi Manifest to the main jar -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Specification-Title>Java(TM) EE Application Deployment 1.2 API</Specification-Title>
+              <Specification-Vendor>Oracle</Specification-Vendor>
+              <Specification-Version>1.2</Specification-Version>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
