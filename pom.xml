@@ -11,7 +11,7 @@
   
   <groupId>org.jboss.spec.javax.enterprise.deploy</groupId>
   <artifactId>jboss-jad-api_1.2_spec</artifactId>
-  <version>1.0.1.Final</version>
+  <version>1.0.2.Final-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>Java(TM) EE Application Deployment 1.2 API</name>
