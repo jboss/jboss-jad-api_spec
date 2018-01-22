@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.jboss</groupId>
     <artifactId>jboss-parent</artifactId>
-    <version>9</version>
+    <version>25</version>
   </parent>
   
   <groupId>org.jboss.spec.javax.enterprise.deploy</groupId>
@@ -16,6 +16,11 @@
 
   <name>Java(TM) EE Application Deployment 1.2 API</name>
   <description>JSR 88: Java(TM) EE Application Deployment 1.2 API</description>
+
+  <properties>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.7</maven.compiler.source>
+  </properties>
 
   <licenses>
     <license>
@@ -83,6 +88,9 @@
             <manifest>
               <addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
             </manifest>
+            <manifestEntries>
+              <Automatic-Module-Name>beta.jboss.jad.api_1_2</Automatic-Module-Name>
+            </manifestEntries>
           </archive>
           <instructions>
             <Specification-Title>Java(TM) EE Application Deployment 1.2 API</Specification-Title>
@@ -126,7 +134,7 @@
     <dependency>
       <groupId>org.jboss</groupId>
       <artifactId>jboss-common-core</artifactId>
-      <version>2.2.17.GA</version>
+      <version>2.5.0.Final</version>
       <scope>provided</scope>
       <exclusions>
         <exclusion>
@@ -135,11 +143,10 @@
         </exclusion>
       </exclusions>
     </dependency>
-
     <dependency>
       <groupId>org.jboss.logging</groupId>
       <artifactId>jboss-logging</artifactId>
-      <version>3.0.1.GA</version>
+      <version>3.3.1.Final</version>
       <scope>provided</scope>
      </dependency>
   </dependencies>
